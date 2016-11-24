@@ -4,8 +4,9 @@
 </head>
 <body>
   <?php
-  $url = "http://api.openweathermap.org/data/2.5/weather?q=Kitakyushu,jp"
-  $json = file_get_contents($url);
+  $url = "http://api.openweathermap.org/data/2.5/weather?q=Kitakyushu,jp&APPID=";
+  $api = "95b417da9bd81fe18e81592860cf798f";
+  $json = file_get_contents($url+$api);
   $json = mb_convert_encoding($json,'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
   $arr = json_decode($json,true);
   if ($arr === NULL) {
